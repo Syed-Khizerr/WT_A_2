@@ -6,13 +6,13 @@ function StudentList() {
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/students')
+    axios.get('https://wt-a-2-backend.onrender.com/students')
       .then(res => setStudents(res.data))
       .catch(err => console.log(err));
   }, []);
 
   const deleteStudent = (id) => {
-    axios.delete(`http://localhost:5000/students/${id}`)
+    axios.delete(`https://wt-a-2-backend.onrender.com/students/${id}`)
       .then(() => setStudents(students.filter(s => s._id !== id)));
   };
 

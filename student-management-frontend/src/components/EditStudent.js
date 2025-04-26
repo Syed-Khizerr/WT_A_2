@@ -18,7 +18,7 @@ function EditStudent() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/students/${id}`)
+    axios.get(`https://wt-a-2-backend.onrender.com/students/${id}`)
       .then(res => setStudent(res.data))
       .catch(err => console.log(err));
   }, [id]);
@@ -29,7 +29,7 @@ function EditStudent() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    axios.put(`http://localhost:5000/students/${id}`, student)
+    axios.put(`https://wt-a-2-backend.onrender.com/students/${id}`, student)
       .then(() => {
         alert("Student updated successfully!");
         navigate('/students');
