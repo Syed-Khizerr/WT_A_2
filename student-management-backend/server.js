@@ -14,7 +14,9 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log(err));
 
-app.use('/students', studentRoutes);
+app.get('/', (req, res) => {
+  res.send('Student Management Backend Running!');
+});
 
 app.listen(process.env.PORT, () => {
   console.log(`Server running on port ${process.env.PORT}`);
