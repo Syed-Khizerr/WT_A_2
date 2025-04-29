@@ -10,8 +10,10 @@ function StudentList() {
       .then(res => setStudents(res.data))
       .catch(err => console.log(err));
   }, []);
-
+  
   const deleteStudent = (id) => {
+    const confirmDelete = window.confirm('Are you sure you want to delete this student?');
+    if (!confirmDelete) return;
     axios.delete(`https://wt-a-2-backend.onrender.com/students/${id}`)
       .then(() => setStudents(students.filter(s => s._id !== id)));
   };
